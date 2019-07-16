@@ -29,8 +29,12 @@ public class CharacterRpg {
     }
 
     public void heal(int pointOfLive, CharacterRpg friendCharacter) {
-        if (friendCharacter.isAlive()){
-            friendCharacter.health += pointOfLive;
+        friendCharacter.applyPointsOfLive(pointOfLive);
+    }
+
+    private void applyPointsOfLive(int pointOfLive) {
+        if (isAlive()){
+            health += pointOfLive;
         }
     }
 }
