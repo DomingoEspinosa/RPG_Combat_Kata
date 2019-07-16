@@ -1,6 +1,6 @@
 package com.codurance.rpg.player;
 
-public class Player {
+public class CharacterRpg {
 
     private boolean alive = true;
     private int health = 1000;
@@ -18,7 +18,7 @@ public class Player {
         return alive;
     }
 
-    public void dealDamage(int damage, Player a) {
-        a.health = 990;
+    public void dealDamage(int damage, CharacterRpg defender) {
+        defender.health -= damage;
     }
 }
