@@ -2,7 +2,6 @@ package com.codurance.rpg.player;
 
 public class CharacterRpg {
 
-    private boolean alive = true;
     private int health = 1000;
     private int level = 1;
 
@@ -15,15 +14,17 @@ public class CharacterRpg {
     }
 
     public boolean isAlive() {
-        return alive;
+        return health > 0;
     }
 
     public void dealDamage(int damage, CharacterRpg defender) {
-        defender.health -= damage;
-        if (defender.health < 0){
-            defender.health = 0;
-            defender.alive = false;
-        }
+        defender.receiveAttack(damage);
+    }
 
+    private void receiveAttack(int damage) {
+        health -= damage;
+        if (!isAlive()) {
+            health = 0;
+        }
     }
 }
