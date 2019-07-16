@@ -10,5 +10,10 @@ public class CharactersShould {
         Player player = new Player();
         assertThat(player.getHealth(), is(1000));
     }
-    
+
+    @Test
+    public void be_created_with_level_1() {
+        Player player = new Player();
+        assertThat(player.getLevel(), is(1));
+    }
 }

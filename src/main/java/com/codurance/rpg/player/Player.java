@@ -7,4 +7,8 @@ public class Player {
     public int getHealth() {
         return health;
     }
+
+    public int getLevel() {
+        return 1;
+    }
 }
