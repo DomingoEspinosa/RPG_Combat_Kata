@@ -29,6 +29,6 @@ public class CharacterRpg {
     }
 
     public void heal(int pointOfLive, CharacterRpg friendCharacter) {
-        friendCharacter.health = 990;
+        friendCharacter.health += pointOfLive;
     }
 }
