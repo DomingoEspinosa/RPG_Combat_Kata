@@ -33,8 +33,11 @@ public class CharacterRpg {
     }
 
     private void applyPointsOfLive(int pointOfLive) {
-        if (isAlive() && ((pointOfLive + health) <= 1000)){
+        if (isAlive()){
             health += pointOfLive;
+            if (health > 1000){
+                health = 1000;
+            }
         }
     }
 }

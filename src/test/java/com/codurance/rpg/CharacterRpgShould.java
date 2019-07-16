@@ -77,6 +77,9 @@ class CharacterRpgShould {
     public void not_heal_over_1000_points_of_life() {
 
         CharacterRpg friendCharacter = new CharacterRpg();
+        CharacterRpg attacker =new CharacterRpg();
+
+        attacker.dealDamage(20, characterRpg);
         friendCharacter.heal(1001, characterRpg);
 
         assertThat(characterRpg.getHealth(), is(1000));
