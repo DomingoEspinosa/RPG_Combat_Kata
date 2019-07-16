@@ -16,4 +16,10 @@ public class CharactersShould {
         Player player = new Player();
         assertThat(player.getLevel(), is(1));
     }
+
+    @Test
+    public void be_created_alive() {
+        Player player = new Player();
+        assertThat(player.isAlive(), is(true));
+    }
 }
