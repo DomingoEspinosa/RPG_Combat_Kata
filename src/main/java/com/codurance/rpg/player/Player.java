@@ -2,6 +2,7 @@ package com.codurance.rpg.player;
 
 public class Player {
 
+    private boolean alive = true;
     private int health = 1000;
     private int level = 1;
 
@@ -14,6 +15,6 @@ public class Player {
     }
 
     public boolean isAlive() {
-        return true;
+        return alive;
     }
 }
