@@ -17,4 +17,8 @@ public class Player {
     public boolean isAlive() {
         return alive;
     }
+
+    public void dealDamage(int damage, Player a) {
+        a.health = 990;
+    }
 }

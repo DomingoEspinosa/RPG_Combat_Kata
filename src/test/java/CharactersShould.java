@@ -29,4 +29,11 @@ public class CharactersShould {
     public void be_created_alive() {
         assertTrue(player.isAlive());
     }
+
+    @Test
+    public void damage_to_other_player() {
+        Player player2 = new Player();
+        player2.dealDamage(10,player);
+        assertThat(player.getHealth(), is(990));
+    }
 }
