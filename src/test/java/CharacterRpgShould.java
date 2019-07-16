@@ -60,4 +60,15 @@ public class CharacterRpgShould {
         assertThat(characterRpg.getHealth(), is(990));
 
     }
+
+    @Test
+    public void not_heal_a_dead_characther() {
+        CharacterRpg attacker =new CharacterRpg();
+        CharacterRpg friendCharacter = new CharacterRpg();
+
+        attacker.dealDamage(1001, characterRpg);
+        friendCharacter.heal(20, characterRpg);
+
+        assertThat(characterRpg.getHealth(), is(0));
+    }
 }
