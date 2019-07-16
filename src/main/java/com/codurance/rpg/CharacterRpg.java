@@ -1,4 +1,4 @@
-package com.codurance.rpg.player;
+package com.codurance.rpg;
 
 public class CharacterRpg {
 

@@ -1,4 +1,5 @@
-import com.codurance.rpg.player.CharacterRpg;
+package com.codurance.rpg;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CharacterRpgShould {
+class CharacterRpgShould {
 
     private CharacterRpg characterRpg;
 
@@ -17,29 +18,29 @@ public class CharacterRpgShould {
     }
 
     @Test
-    public void be_created_with_health_1000() {
+    void be_created_with_health_1000() {
         assertThat(characterRpg.getHealth(), is(1000));
     }
 
     @Test
-    public void be_created_with_level_1() {
+    void be_created_with_level_1() {
         assertThat(characterRpg.getLevel(), is(1));
     }
 
     @Test
-    public void be_created_alive() {
+    void be_created_alive() {
         assertTrue(characterRpg.isAlive());
     }
 
     @Test
-    public void deal_damage_to_other_character() {
+    void deal_damage_to_other_character() {
         CharacterRpg attacker = new CharacterRpg();
         attacker.dealDamage(10, characterRpg);
         assertThat(characterRpg.getHealth(), is(990));
     }
 
     @Test
-    public void kill_other_character() {
+    void kill_other_character() {
         CharacterRpg attacker = new CharacterRpg();
 
         attacker.dealDamage(500, characterRpg);
@@ -50,7 +51,7 @@ public class CharacterRpgShould {
     }
 
     @Test
-    public void heal_to_other_characters() {
+    void heal_to_other_characters() {
         CharacterRpg attacker = new CharacterRpg();
         CharacterRpg friendCharacter = new CharacterRpg();
 
@@ -62,7 +63,7 @@ public class CharacterRpgShould {
     }
 
     @Test
-    public void not_heal_a_dead_characther() {
+    void not_heal_a_dead_character() {
         CharacterRpg attacker =new CharacterRpg();
         CharacterRpg friendCharacter = new CharacterRpg();
 
