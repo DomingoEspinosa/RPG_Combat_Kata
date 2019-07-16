@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CharacterRpgShould {
@@ -35,5 +36,15 @@ public class CharacterRpgShould {
         CharacterRpg attacker = new CharacterRpg();
         attacker.dealDamage(10, characterRpg);
         assertThat(characterRpg.getHealth(), is(990));
+    }
+
+    @Test
+    public void kill_other_character() {
+        CharacterRpg attacker = new CharacterRpg();
+
+        attacker.dealDamage(1001, characterRpg);
+
+        assertThat(characterRpg.getHealth(), is(0));
+        assertFalse(characterRpg.isAlive());
     }
 }
