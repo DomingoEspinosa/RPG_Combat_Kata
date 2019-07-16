@@ -2,7 +2,9 @@ package com.codurance.rpg;
 
 public class CharacterRpg {
 
-    private int health = 1000;
+    static final int MAXIMUM_HEALTH = 1000;
+    static final int MINIMUM_HEALTH = 0;
+    private int health = MAXIMUM_HEALTH;
     private int level = 1;
 
     public int getHealth() {
@@ -14,7 +16,7 @@ public class CharacterRpg {
     }
 
     public boolean isAlive() {
-        return health > 0;
+        return health > MINIMUM_HEALTH;
     }
 
     public void dealDamage(int damage, CharacterRpg defender) {
@@ -24,7 +26,7 @@ public class CharacterRpg {
     private void receiveAttack(int damage) {
         health -= damage;
         if (!isAlive()) {
-            health = 0;
+            health = MINIMUM_HEALTH;
         }
     }
 
@@ -33,10 +35,10 @@ public class CharacterRpg {
     }
 
     private void applyPointsOfLive(int pointOfLive) {
-        if (isAlive()){
+        if (isAlive()) {
             health += pointOfLive;
-            if (health > 1000){
-                health = 1000;
+            if (health > MAXIMUM_HEALTH) {
+                health = MAXIMUM_HEALTH;
             }
         }
     }

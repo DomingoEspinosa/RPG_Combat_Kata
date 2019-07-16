@@ -3,6 +3,8 @@ package com.codurance.rpg;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.codurance.rpg.CharacterRpg.MAXIMUM_HEALTH;
+import static com.codurance.rpg.CharacterRpg.MINIMUM_HEALTH;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -10,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CharacterRpgShould {
 
+
     private CharacterRpg characterRpg;
+
 
     @BeforeEach
     void setUp() {
@@ -18,8 +22,8 @@ class CharacterRpgShould {
     }
 
     @Test
-    void be_created_with_health_1000() {
-        assertThat(characterRpg.getHealth(), is(1000));
+    void be_created_with_maximum_health() {
+        assertThat(characterRpg.getHealth(), is(MAXIMUM_HEALTH));
     }
 
     @Test
@@ -46,7 +50,7 @@ class CharacterRpgShould {
         attacker.dealDamage(500, characterRpg);
         attacker.dealDamage(501, characterRpg);
 
-        assertThat(characterRpg.getHealth(), is(0));
+        assertThat(characterRpg.getHealth(), is(MINIMUM_HEALTH));
         assertFalse(characterRpg.isAlive());
     }
 
@@ -64,24 +68,24 @@ class CharacterRpgShould {
 
     @Test
     void not_heal_a_dead_character() {
-        CharacterRpg attacker =new CharacterRpg();
+        CharacterRpg attacker = new CharacterRpg();
         CharacterRpg friendCharacter = new CharacterRpg();
 
         attacker.dealDamage(1001, characterRpg);
         friendCharacter.heal(20, characterRpg);
 
-        assertThat(characterRpg.getHealth(), is(0));
+        assertThat(characterRpg.getHealth(), is(MINIMUM_HEALTH));
     }
 
     @Test
-    public void not_heal_over_1000_points_of_life() {
+    void not_heal_over_maximum_health() {
 
         CharacterRpg friendCharacter = new CharacterRpg();
-        CharacterRpg attacker =new CharacterRpg();
+        CharacterRpg attacker = new CharacterRpg();
 
         attacker.dealDamage(20, characterRpg);
         friendCharacter.heal(1001, characterRpg);
 
-        assertThat(characterRpg.getHealth(), is(1000));
+        assertThat(characterRpg.getHealth(), is(MAXIMUM_HEALTH));
     }
 }
