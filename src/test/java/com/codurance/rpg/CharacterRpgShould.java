@@ -72,4 +72,13 @@ class CharacterRpgShould {
 
         assertThat(characterRpg.getHealth(), is(0));
     }
+
+    @Test
+    public void not_heal_over_1000_points_of_life() {
+
+        CharacterRpg friendCharacter = new CharacterRpg();
+        friendCharacter.heal(1001, characterRpg);
+
+        assertThat(characterRpg.getHealth(), is(1000));
+    }
 }
