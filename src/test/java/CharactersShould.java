@@ -6,9 +6,9 @@ import static org.hamcrest.core.Is.is;
 
 public class CharactersShould {
     @Test
-    public void created_with_health_1000() {
+    public void be_created_with_health_1000() {
         Player player = new Player();
-        int health = player.getHealth();
-        assertThat(health, is(1000));
+        assertThat(player.getHealth(), is(1000));
     }
+    
 }
