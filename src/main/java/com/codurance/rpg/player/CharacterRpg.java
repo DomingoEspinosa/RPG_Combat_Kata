@@ -19,11 +19,11 @@ public class CharacterRpg {
     }
 
     public void dealDamage(int damage, CharacterRpg defender) {
-        if (damage > 1000){
+        defender.health -= damage;
+        if (defender.health < 0){
             defender.health = 0;
             defender.alive = false;
-        }else {
-            defender.health -= damage;
         }
+
     }
 }

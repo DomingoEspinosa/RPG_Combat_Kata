@@ -42,7 +42,8 @@ public class CharacterRpgShould {
     public void kill_other_character() {
         CharacterRpg attacker = new CharacterRpg();
 
-        attacker.dealDamage(1001, characterRpg);
+        attacker.dealDamage(500, characterRpg);
+        attacker.dealDamage(501, characterRpg);
 
         assertThat(characterRpg.getHealth(), is(0));
         assertFalse(characterRpg.isAlive());
